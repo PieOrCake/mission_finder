@@ -45,6 +45,16 @@ struct TabDef {
     const std::vector<MissionFinder::MissionRow>* rows;
 };
 
+static ImVec4 GetTypeColor(const char* typeName) {
+    if (!typeName) return ImVec4(1.f, 1.f, 1.f, 1.f);
+    if (std::strcmp(typeName, "Trek") == 0)      return ImVec4(0.4f, 0.8f, 0.4f, 1.f);  // green
+    if (std::strcmp(typeName, "Race") == 0)      return ImVec4(0.3f, 0.7f, 1.0f, 1.f);  // blue
+    if (std::strcmp(typeName, "Bounty") == 0)    return ImVec4(1.0f, 0.45f, 0.35f, 1.f); // red
+    if (std::strcmp(typeName, "Puzzle") == 0)    return ImVec4(0.9f, 0.75f, 0.3f, 1.f);  // gold
+    if (std::strcmp(typeName, "Challenge") == 0) return ImVec4(0.8f, 0.5f, 0.9f, 1.f);  // purple
+    return ImVec4(1.f, 1.f, 1.f, 1.f);
+}
+
 static std::string GetConfigPath() {
     std::string path;
     if (APIDefs) {
@@ -157,39 +167,37 @@ static void OnMissionRowClicked(const char* typeName, const MissionFinder::Missi
     }
 }
 
-static float s_missionColWidths[3] = { 80.f, 200.f, 200.f };
 static int s_missionSortCol = 1;
 static bool s_missionSortAsc = true;
 
 static void DrawMissionTable(const std::vector<std::pair<const char*, const MissionFinder::MissionRow*>>& filtered) {
-    const ImGuiTableFlags headerFlags = ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg
-        | ImGuiTableFlags_Resizable | ImGuiTableFlags_Sortable;
-
-    if (ImGui::BeginTable("missions_header", 3, headerFlags)) {
-        ImGui::TableSetupColumn("Type", ImGuiTableColumnFlags_WidthFixed, s_missionColWidths[0]);
-        ImGui::TableSetupColumn("Name", ImGuiTableColumnFlags_WidthFixed
-            | ImGuiTableColumnFlags_DefaultSort | ImGuiTableColumnFlags_PreferSortAscending, s_missionColWidths[1]);
-        ImGui::TableSetupColumn("Map", ImGuiTableColumnFlags_WidthFixed, s_missionColWidths[2]);
-        ImGui::TableHeadersRow();
-        ImGuiTableSortSpecs* sort_specs = ImGui::TableGetSortSpecs();
-        if (sort_specs && sort_specs->SpecsCount > 0) {
-            s_missionSortCol = sort_specs->Specs[0].ColumnIndex;
-            s_missionSortAsc = (sort_specs->Specs[0].SortDirection == ImGuiSortDirection_Ascending);
-        }
-        ImGui::EndTable();
-    }
+    const ImGuiTableFlags flags = ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg
+        | ImGuiTableFlags_Resizable | ImGuiTableFlags_Sortable | ImGuiTableFlags_ScrollY;
 
     const float bodyH = ImGui::GetContentRegionAvail().y;
     if (bodyH <= 0.f)
         return;
 
-    if (ImGui::BeginTable("missions_body", 3,
-        ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY,
-        ImVec2(-1, bodyH)))
+    // Style: stronger alternating rows and hover highlight
+    ImGui::PushStyleColor(ImGuiCol_TableRowBg,    ImVec4(0.00f, 0.00f, 0.00f, 0.00f));
+    ImGui::PushStyleColor(ImGuiCol_TableRowBgAlt, ImVec4(1.00f, 1.00f, 1.00f, 0.04f));
+    ImGui::PushStyleColor(ImGuiCol_HeaderHovered,  ImVec4(0.30f, 0.55f, 0.80f, 0.40f));
+    ImGui::PushStyleColor(ImGuiCol_HeaderActive,   ImVec4(0.30f, 0.55f, 0.80f, 0.55f));
+
+    if (ImGui::BeginTable("missions", 3, flags, ImVec2(-1, bodyH)))
     {
-        ImGui::TableSetupColumn("##Type", ImGuiTableColumnFlags_WidthFixed, s_missionColWidths[0]);
-        ImGui::TableSetupColumn("##Name", ImGuiTableColumnFlags_WidthFixed, s_missionColWidths[1]);
-        ImGui::TableSetupColumn("##Map", ImGuiTableColumnFlags_WidthFixed, s_missionColWidths[2]);
+        ImGui::TableSetupColumn("Type", ImGuiTableColumnFlags_WidthFixed, 75.f);
+        ImGui::TableSetupColumn("Name", ImGuiTableColumnFlags_WidthStretch
+            | ImGuiTableColumnFlags_DefaultSort | ImGuiTableColumnFlags_PreferSortAscending, 1.f);
+        ImGui::TableSetupColumn("Map", ImGuiTableColumnFlags_WidthStretch, 0.8f);
+        ImGui::TableSetupScrollFreeze(0, 1);
+        ImGui::TableHeadersRow();
+
+        ImGuiTableSortSpecs* sort_specs = ImGui::TableGetSortSpecs();
+        if (sort_specs && sort_specs->SpecsCount > 0) {
+            s_missionSortCol = sort_specs->Specs[0].ColumnIndex;
+            s_missionSortAsc = (sort_specs->Specs[0].SortDirection == ImGuiSortDirection_Ascending);
+        }
 
         auto rows = filtered;
         std::sort(rows.begin(), rows.end(), [](const auto& a, const auto& b) {
@@ -217,7 +225,9 @@ static void DrawMissionTable(const std::vector<std::pair<const char*, const Miss
             if (clicked)
                 OnMissionRowClicked(typeName, row);
             ImGui::SameLine(0, 0);
+            ImGui::PushStyleColor(ImGuiCol_Text, GetTypeColor(typeName));
             ImGui::TextUnformatted(typeName);
+            ImGui::PopStyleColor();
             ImGui::TableSetColumnIndex(1);
             ImGui::TextUnformatted(row->name.c_str());
             ImGui::TableSetColumnIndex(2);
@@ -225,6 +235,8 @@ static void DrawMissionTable(const std::vector<std::pair<const char*, const Miss
         }
         ImGui::EndTable();
     }
+
+    ImGui::PopStyleColor(4);
 }
 
 static void DrawFilteredTab(const char* childId, float statusH,
@@ -259,19 +271,13 @@ void AddonRender() {
     }
 
     if (!g_dataLoaded) {
-        ImGui::Text("Mission data not loaded. Place mission_finder_cache.json in the addon folder.");
+        ImGui::Text("Mission data failed to load.");
         ImGui::End();
         return;
     }
 
-    ImGui::AlignTextToFramePadding();
-    ImGui::Text("Search:");
-    ImGui::SameLine();
-    ImGui::SetNextItemWidth(-60.f);
-    ImGui::InputTextWithHint("##search", "Filter by mission name or zone...", g_searchBuf, sizeof(g_searchBuf));
-    ImGui::SameLine();
-    if (ImGui::Button("Clear"))
-        g_searchBuf[0] = '\0';
+    ImGui::SetNextItemWidth(-1.f);
+    ImGui::InputTextWithHint("##search", "Search missions...", g_searchBuf, sizeof(g_searchBuf));
 
     float statusH = 0.f;
     if (!g_statusMessage.empty())
@@ -299,7 +305,16 @@ void AddonRender() {
 
     if (!g_statusMessage.empty()) {
         ImGui::Separator();
+        ImVec4 statusColor;
+        if (g_statusMessage.find("Copied") != std::string::npos)
+            statusColor = ImVec4(0.4f, 0.9f, 0.4f, 1.f);  // green
+        else if (g_statusMessage.find("Sending") != std::string::npos)
+            statusColor = ImVec4(1.0f, 0.85f, 0.3f, 1.f);  // yellow
+        else
+            statusColor = ImVec4(1.f, 1.f, 1.f, 1.f);
+        ImGui::PushStyleColor(ImGuiCol_Text, statusColor);
         ImGui::TextUnformatted(g_statusMessage.c_str());
+        ImGui::PopStyleColor();
     }
 
     ImGui::End();
@@ -382,7 +397,7 @@ extern "C" __declspec(dllexport) AddonDefinition_t* GetAddonDef() {
     AddonDef.Load = AddonLoad;
     AddonDef.Unload = AddonUnload;
     AddonDef.Flags = AF_None;
-    AddonDef.Provider = UP_Github;
+    AddonDef.Provider = UP_GitHub;
     AddonDef.UpdateLink = "https://github.com/PieOrCake/mission_finder";
     return &AddonDef;
 }
