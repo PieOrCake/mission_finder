@@ -1,0 +1,4 @@
+; Nexus calls GetProcAddress(module, "GetAddonDef") - export must match exactly.
+LIBRARY MissionFinder.dll
+EXPORTS
+    GetAddonDef

@@ -1,0 +1,1112 @@
+{
+  "trek": [
+    [
+      "Altar Brook Lair",
+      "Queensdale",
+      "[&BPIAAAA=]"
+    ],
+    [
+      "Anthem's Hold",
+      "Cursed Shore",
+      "[&BOQGAAA=]"
+    ],
+    [
+      "Anya's Patch",
+      "Diessa Plateau",
+      "[&BN4AAAA=]"
+    ],
+    [
+      "Arctodus Haunt",
+      "Wayfarer Foothills",
+      "[&BH4BAAA=]"
+    ],
+    [
+      "Backroot Fountain",
+      "The Grove",
+      "[&BLsEAAA=]"
+    ],
+    [
+      "Badjelly Kelpbed",
+      "Snowden Drifts",
+      "[&BMADAAA=]"
+    ],
+    [
+      "Bandit's Cabbage Patch",
+      "Harathi Hinterlands",
+      "[&BKgAAAA=]"
+    ],
+    [
+      "Beetlestone Mirador",
+      "Queensdale",
+      "[&BPoAAAA=]"
+    ],
+    [
+      "Black Lion Root Cellar",
+      "The Grove",
+      "[&BLsEAAA=]"
+    ],
+    [
+      "Blackblade Butte",
+      "Diessa Plateau",
+      "[&BNwAAAA=]"
+    ],
+    [
+      "Blasted Sepulchre",
+      "Diessa Plateau",
+      "[&BNoAAAA=]"
+    ],
+    [
+      "Blood Ooze Gallery",
+      "Bloodtide Coast",
+      "[&BK0BAAA=]"
+    ],
+    [
+      "Bluup's Comeuppance",
+      "Rata Sum",
+      "[&BLgEAAA=]"
+    ],
+    [
+      "Brandstrike Dig",
+      "Fields of Ruin",
+      "[&BEsBAAA=]"
+    ],
+    [
+      "Briarthorn Barrier",
+      "Caledon Forest",
+      "[&BDUBAAA=]"
+    ],
+    [
+      "Broken Falls Courtyard",
+      "Black Citadel",
+      "[&BKwDAAA=]"
+    ],
+    [
+      "Broodmother Falls",
+      "Frostgorge Sound",
+      "[&BIQCAAA=]"
+    ],
+    [
+      "Brothers' Notch",
+      "Hoelbrak",
+      "[&BJADAAA=]"
+    ],
+    [
+      "Burstbubble Blind",
+      "Blazeridge Steppes",
+      "[&BPsBAAA=]"
+    ],
+    [
+      "Cache of the Pursued",
+      "Cursed Shore",
+      "[&BCEDAAA=]"
+    ],
+    [
+      "Cademkrall Overlook",
+      "Plains of Ashford",
+      "[&BIgBAAA=]"
+    ],
+    [
+      "Canyonweb Cave",
+      "Blazeridge Steppes",
+      "[&BAQCAAA=]"
+    ],
+    [
+      "Captain's Berth",
+      "Malchor's Leap",
+      "[&BLICAAA=]"
+    ],
+    [
+      "Castavall Corner",
+      "Bloodtide Coast",
+      "[&BK4BAAA=]"
+    ],
+    [
+      "Cathedral's Cavity",
+      "Malchor's Leap",
+      "[&BKsCAAA=]"
+    ],
+    [
+      "Cave Bear Cache",
+      "Snowden Drifts",
+      "[&BL8AAAA=]"
+    ],
+    [
+      "Cave Spider Nidus",
+      "Lornar's Pass",
+      "[&BJgBAAA=]"
+    ],
+    [
+      "Claypool Bailey",
+      "Queensdale",
+      "[&BPYAAAA=]"
+    ],
+    [
+      "Constellation Parapet",
+      "The Grove",
+      "[&BLsEAAA=]"
+    ],
+    [
+      "Corruption's Teeth",
+      "Frostgorge Sound",
+      "[&BIYCAAA=]"
+    ],
+    [
+      "Covington's Stowage",
+      "Bloodtide Coast",
+      "[&BKgBAAA=]"
+    ],
+    [
+      "Cutthroat's Rest",
+      "Gendarran Fields",
+      "[&BM0DAAA=]"
+    ],
+    [
+      "Cymbel's Glen",
+      "Fields of Ruin",
+      "[&BE8BAAA=]"
+    ],
+    [
+      "Dawngleam Pergola",
+      "The Grove",
+      "[&BLwEAAA=]"
+    ],
+    [
+      "Deepmire Diver",
+      "Mount Maelstrom",
+      "[&BNECAAA=]"
+    ],
+    [
+      "Defiled Delve",
+      "Kessex Hills",
+      "[&BBEAAAA=]"
+    ],
+    [
+      "Delight's Balcony",
+      "Malchor's Leap",
+      "[&BKYCAAA=]"
+    ],
+    [
+      "Destiny's Guildhall",
+      "Queensdale",
+      "[&BO8AAAA=]"
+    ],
+    [
+      "Dirtclaw Cleft",
+      "Iron Marches",
+      "[&BOMBAAA=]"
+    ],
+    [
+      "Doefalls Court",
+      "Plains of Ashford",
+      "[&BIcBAAA=]"
+    ],
+    [
+      "Drakecleft Shelf",
+      "Fields of Ruin",
+      "[&BEwBAAA=]"
+    ],
+    [
+      "Drakehatch Shore",
+      "Diessa Plateau",
+      "[&BGQBAAA=]"
+    ],
+    [
+      "Droknah Gate",
+      "Mount Maelstrom",
+      "[&BNQCAAA=]"
+    ],
+    [
+      "Drowned Plaza",
+      "Straits of Devastation",
+      "[&BO0CAAA=]"
+    ],
+    [
+      "East End Falls",
+      "Brisban Wildlands",
+      "[&BGAAAAA=]"
+    ],
+    [
+      "Eastlurk Alley",
+      "Divinity's Reach",
+      "[&BCMDAAA=]"
+    ],
+    [
+      "Elise's Surprise",
+      "Harathi Hinterlands",
+      "[&BKsAAAA=]"
+    ],
+    [
+      "Ettinbreath Lair",
+      "Lornar's Pass",
+      "[&BOYAAAA=]"
+    ],
+    [
+      "Fathom Five Forcefield",
+      "Straits of Devastation",
+      "[&BPICAAA=]"
+    ],
+    [
+      "Fawcett's Porch",
+      "Harathi Hinterlands",
+      "[&BLIAAAA=]"
+    ],
+    [
+      "Fire Imp Pocket",
+      "Mount Maelstrom",
+      "[&BM0CAAA=]"
+    ],
+    [
+      "Firefrog Springs",
+      "Sparkfly Fen",
+      "[&BMwBAAA=]"
+    ],
+    [
+      "Firewatch Flybridge",
+      "Iron Marches",
+      "[&BO0BAAA=]"
+    ],
+    [
+      "Fisher's Crag",
+      "Metrica Province",
+      "[&BK4EAAA=]"
+    ],
+    [
+      "Flakk's Lapidary Nook",
+      "Rata Sum",
+      "[&BLYEAAA=]"
+    ],
+    [
+      "Forager's Midden",
+      "Dredgehaunt Cliffs",
+      "[&BFsCAAA=]"
+    ],
+    [
+      "Forbidden Shear",
+      "Malchor's Leap",
+      "[&BK8CAAA=]"
+    ],
+    [
+      "Foreman's Recess",
+      "Dredgehaunt Cliffs",
+      "[&BFgCAAA=]"
+    ],
+    [
+      "Forgotten Grotto",
+      "Blazeridge Steppes",
+      "[&BAECAAA=]"
+    ],
+    [
+      "Founder's Flagon Hearth",
+      "Fields of Ruin",
+      "[&BD0EAAA=]"
+    ],
+    [
+      "Freestand Scaffold",
+      "Black Citadel",
+      "[&BKwDAAA=]"
+    ],
+    [
+      "Frozen Antrum",
+      "Timberline Falls",
+      "[&BE8CAAA=]"
+    ],
+    [
+      "Gallow Canyons",
+      "Brisban Wildlands",
+      "[&BGMAAAA=]"
+    ],
+    [
+      "Gardenroot Alcove",
+      "The Grove",
+      "[&BLsEAAA=]"
+    ],
+    [
+      "Gnashar's Viewpoint",
+      "Brisban Wildlands",
+      "[&BF0AAAA=]"
+    ],
+    [
+      "Green Moa Paddock",
+      "Caledon Forest",
+      "[&BDwBAAA=]"
+    ],
+    [
+      "Grenth's Pavillion",
+      "Divinity's Reach",
+      "[&BCQDAAA=]"
+    ],
+    [
+      "Grimsdottir's Duty",
+      "Hoelbrak",
+      "[&BIsDAAA=]"
+    ],
+    [
+      "Guardian Overwatch",
+      "Harathi Hinterlands",
+      "[&BKkAAAA=]"
+    ],
+    [
+      "Hawkeye Perch",
+      "Timberline Falls",
+      "[&BEUCAAA=]"
+    ],
+    [
+      "Heart Speaks Notch",
+      "Fireheart Rise",
+      "[&BB0CAAA=]"
+    ],
+    [
+      "Heartwoods Honey Cache",
+      "Queensdale",
+      "[&BPMAAAA=]"
+    ],
+    [
+      "Heidi's Showpiece",
+      "Harathi Hinterlands",
+      "[&BKcAAAA=]"
+    ],
+    [
+      "Hermit's Roost",
+      "Fields of Ruin",
+      "[&BNgAAAA=]"
+    ],
+    [
+      "Hidden Owl Distillery",
+      "Snowden Drifts",
+      "[&BMEAAAA=]"
+    ],
+    [
+      "Holystone Sanctum",
+      "Diessa Plateau",
+      "[&BMUDAAA=]"
+    ],
+    [
+      "Icewurm Trench",
+      "Frostgorge Sound",
+      "[&BH8CAAA=]"
+    ],
+    [
+      "Ideation Leap",
+      "Rata Sum",
+      "[&BLUEAAA=]"
+    ],
+    [
+      "Imphaunt Hallow",
+      "Caledon Forest",
+      "[&BEEBAAA=]"
+    ],
+    [
+      "Irondock Viewpoint",
+      "Plains of Ashford",
+      "[&BIkBAAA=]"
+    ],
+    [
+      "Isenfell Wash",
+      "Snowden Drifts",
+      "[&BLgAAAA=]"
+    ],
+    [
+      "Isgarren Viewpoint",
+      "Kessex Hills",
+      "[&BBEAAAA=]"
+    ],
+    [
+      "Jaguar Pride Den",
+      "Metrica Province",
+      "[&BEcAAAA=]"
+    ],
+    [
+      "Junker's Apex",
+      "Black Citadel",
+      "[&BDcEAAA=]"
+    ],
+    [
+      "Kaldar's Hot Seat",
+      "Hoelbrak",
+      "[&BI0DAAA=]"
+    ],
+    [
+      "Kari's Hot Spot",
+      "Kessex Hills",
+      "[&BBIAAAA=]"
+    ],
+    [
+      "Kegbrawl Watch",
+      "Hoelbrak",
+      "[&BJADAAA=]"
+    ],
+    [
+      "Kevach's Strongroom",
+      "Wayfarer Foothills",
+      "[&BMEDAAA=]"
+    ],
+    [
+      "Lakebottom Underpass",
+      "Queensdale",
+      "[&BPkAAAA=]"
+    ],
+    [
+      "Lawen Grotto",
+      "Gendarran Fields",
+      "[&BIsBAAA=]"
+    ],
+    [
+      "Lightfoot Dock",
+      "Straits of Devastation",
+      "[&BPACAAA=]"
+    ],
+    [
+      "Lily's Bivvy",
+      "Fireheart Rise",
+      "[&BCACAAA=]"
+    ],
+    [
+      "Lionguard Larder",
+      "Wayfarer Foothills",
+      "[&BH0BAAA=]"
+    ],
+    [
+      "Lychcroft Wardenship",
+      "Kessex Hills",
+      "[&BAwAAAA=]"
+    ],
+    [
+      "Magihedron Corner",
+      "Rata Sum",
+      "[&BBMEAAA=]"
+    ],
+    [
+      "Master Control LIN39",
+      "Metrica Province",
+      "[&BEcAAAA=]"
+    ],
+    [
+      "Melandru's Fount",
+      "Divinity's Reach",
+      "[&BCcDAAA=]"
+    ],
+    [
+      "Meltwater Cave",
+      "Timberline Falls",
+      "[&BEgCAAA=]"
+    ],
+    [
+      "Mina's Target Shoot",
+      "Divinity's Reach",
+      "[&BCoDAAA=]"
+    ],
+    [
+      "Mistriven Shelf",
+      "Lornar's Pass",
+      "[&BJkBAAA=]"
+    ],
+    [
+      "Moleberia Prison",
+      "Wayfarer Foothills",
+      "[&BHgBAAA=]"
+    ],
+    [
+      "Monument to the Ancient One",
+      "Southsun Cove",
+      "[&BNgGAAA=]"
+    ],
+    [
+      "Narrowkraal Crossing",
+      "Fields of Ruin",
+      "[&BE8BAAA=]"
+    ],
+    [
+      "Necrolith Landing",
+      "The Grove",
+      "[&BBIEAAA=]"
+    ],
+    [
+      "Orecart Hoist",
+      "Fireheart Rise",
+      "[&BBcCAAA=]"
+    ],
+    [
+      "Orvanic Sourcewaters",
+      "Sparkfly Fen",
+      "[&BMkBAAA=]"
+    ],
+    [
+      "Osenfold Counterweights",
+      "Wayfarer Foothills",
+      "[&BAEEAAA=]"
+    ],
+    [
+      "Overlord Lodge",
+      "Kessex Hills",
+      "[&BAQAAAA=]"
+    ],
+    [
+      "Phasmatis Prospect",
+      "Plains of Ashford",
+      "[&BIoBAAA=]"
+    ],
+    [
+      "Pochtecatl's Desire",
+      "Bloodtide Coast",
+      "[&BK8BAAA=]"
+    ],
+    [
+      "Port Authority Lost & Found",
+      "Rata Sum",
+      "[&BAcFAAA=]"
+    ],
+    [
+      "Portmatt's Promontory",
+      "Bloodtide Coast",
+      "[&BKQBAAA=]"
+    ],
+    [
+      "Provatum Carcer",
+      "Fireheart Rise",
+      "[&BCYCAAA=]"
+    ],
+    [
+      "Ramview Peak",
+      "Dredgehaunt Cliffs",
+      "[&BGQCAAA=]"
+    ],
+    [
+      "Raptor's Aerie",
+      "Iron Marches",
+      "[&BOsBAAA=]"
+    ],
+    [
+      "Raptor's Perch",
+      "Gendarran Fields",
+      "[&BO4AAAA=]"
+    ],
+    [
+      "Rata Pten Portico",
+      "Mount Maelstrom",
+      "[&BMkCAAA=]"
+    ],
+    [
+      "Raven Nook",
+      "Hoelbrak",
+      "[&BIgDAAA=]"
+    ],
+    [
+      "Reef Drake Nesting Grounds",
+      "Southsun Cove",
+      "[&BNUGAAA=]"
+    ],
+    [
+      "Restless Footings",
+      "Mount Maelstrom",
+      "[&BNICAAA=]"
+    ],
+    [
+      "Reverberant's Watch",
+      "Wayfarer Foothills",
+      "[&BHUBAAA=]"
+    ],
+    [
+      "Risewild Green",
+      "Bloodtide Coast",
+      "[&BKcBAAA=]"
+    ],
+    [
+      "Rurik's View",
+      "Divinity's Reach",
+      "[&BCsDAAA=]"
+    ],
+    [
+      "Saltflood Altar",
+      "Sparkfly Fen",
+      "[&BMcBAAA=]"
+    ],
+    [
+      "Sandwurm Prowl",
+      "Southsun Cove",
+      "[&BNUGAAA=]"
+    ],
+    [
+      "Scholar's Blind",
+      "Dredgehaunt Cliffs",
+      "[&BFwCAAA=]"
+    ],
+    [
+      "Scourgejaw Watchtower",
+      "Iron Marches",
+      "[&BOcBAAA=]"
+    ],
+    [
+      "Scriptorium Nook",
+      "Black Citadel",
+      "[&BKcDAAA=]"
+    ],
+    [
+      "Sea Scorpion's Eye",
+      "Cursed Shore",
+      "[&BB4DAAA=]"
+    ],
+    [
+      "Sentinel Sink",
+      "Iron Marches",
+      "[&BOkBAAA=]"
+    ],
+    [
+      "Sepulchre Skylight",
+      "Straits of Devastation",
+      "[&BNIEAAA=]"
+    ],
+    [
+      "Sharkhollow's Edge",
+      "Blazeridge Steppes",
+      "[&BPwBAAA=]"
+    ],
+    [
+      "Shattered Loft",
+      "Sparkfly Fen",
+      "[&BMUBAAA=]"
+    ],
+    [
+      "Siamoth Refuge",
+      "Sparkfly Fen",
+      "[&BM4BAAA=]"
+    ],
+    [
+      "Skalecatch Butcher Shop",
+      "Iron Marches",
+      "[&BOcBAAA=]"
+    ],
+    [
+      "Skalefound Cove",
+      "Fireheart Rise",
+      "[&BBgCAAA=]"
+    ],
+    [
+      "Skalesplash Falls",
+      "Timberline Falls",
+      "[&BEYCAAA=]"
+    ],
+    [
+      "Skalestash Hideaway",
+      "Plains of Ashford",
+      "[&BIEBAAA=]"
+    ],
+    [
+      "Skelknest Borehole",
+      "Frostgorge Sound",
+      "[&BHwCAAA=]"
+    ],
+    [
+      "Skibo Hall Dormitory",
+      "Rata Sum",
+      "[&BLkEAAA=]"
+    ],
+    [
+      "Skyshine Scratch",
+      "Harathi Hinterlands",
+      "[&BKkAAAA=]"
+    ],
+    [
+      "Snowden Safehouse",
+      "Snowden Drifts",
+      "[&BLkAAAA=]"
+    ],
+    [
+      "Snowhowl Den",
+      "Snowden Drifts",
+      "[&BL8AAAA=]"
+    ],
+    [
+      "Soggorsort Rotunda",
+      "Caledon Forest",
+      "[&BD0BAAA=]"
+    ],
+    [
+      "Soren Draa Rest Stop",
+      "Metrica Province",
+      "[&BEAAAAA=]"
+    ],
+    [
+      "Source of Lament",
+      "Frostgorge Sound",
+      "[&BIECAAA=]"
+    ],
+    [
+      "Sparwind's Lounge",
+      "Black Citadel",
+      "[&BK0DAAA=]"
+    ],
+    [
+      "Spectrehaunt Socket",
+      "Malchor's Leap",
+      "[&BLICAAA=]"
+    ],
+    [
+      "Steamscrap Overlook",
+      "Lornar's Pass",
+      "[&BOoAAAA=]"
+    ],
+    [
+      "Steampipe Perch",
+      "Southsun Cove",
+      "[&BNAGAAA=]"
+    ],
+    [
+      "Steamy Steps",
+      "Southsun Cove",
+      "[&BNAGAAA=]"
+    ],
+    [
+      "Steelband's Tunnel",
+      "Blazeridge Steppes",
+      "[&BPsBAAA=]"
+    ],
+    [
+      "Stentor Shelter",
+      "Straits of Devastation",
+      "[&BO0CAAA=]"
+    ],
+    [
+      "Stonebore Spiderhole",
+      "Gendarran Fields",
+      "[&BIwBAAA=]"
+    ],
+    [
+      "Strongpaw's Garden",
+      "Diessa Plateau",
+      "[&BN0AAAA=]"
+    ],
+    [
+      "Tactical Retreat",
+      "Cursed Shore",
+      "[&BOQGAAA=]"
+    ],
+    [
+      "Talus Steps",
+      "Timberline Falls",
+      "[&BEQCAAA=]"
+    ],
+    [
+      "Tarstar Copse",
+      "Fireheart Rise",
+      "[&BB0CAAA=]"
+    ],
+    [
+      "Tekki's Drawing Board",
+      "Brisban Wildlands",
+      "[&BGUAAAA=]"
+    ],
+    [
+      "Thaumanova Spillway",
+      "Metrica Province",
+      "[&BEcAAAA=]"
+    ],
+    [
+      "The Karka Klub",
+      "Southsun Cove",
+      "[&BNUGAAA=]"
+    ],
+    [
+      "The People's Deadlock",
+      "Frostgorge Sound",
+      "[&BHkCAAA=]"
+    ],
+    [
+      "The Workers' Stores",
+      "Dredgehaunt Cliffs",
+      "[&BFoCAAA=]"
+    ],
+    [
+      "Togatl Shore",
+      "Kessex Hills",
+      "[&BBAAAAA=]"
+    ],
+    [
+      "Tower of Tribulation",
+      "Dredgehaunt Cliffs",
+      "[&BFYCAAA=]"
+    ],
+    [
+      "Toxal Spill",
+      "Brisban Wildlands",
+      "[&BIAHAAA=]"
+    ],
+    [
+      "Trader's Stash",
+      "Hoelbrak",
+      "[&BIoDAAA=]"
+    ],
+    [
+      "Trolltrap Pit",
+      "Lornar's Pass",
+      "[&BOkAAAA=]"
+    ],
+    [
+      "Turai Tavern Stillroom",
+      "Divinity's Reach",
+      "[&BCgDAAA=]"
+    ],
+    [
+      "Ulta Scraproom",
+      "Brisban Wildlands",
+      "[&BGUAAAA=]"
+    ],
+    [
+      "Unseen Scratch",
+      "Caledon Forest",
+      "[&BDwBAAA=]"
+    ],
+    [
+      "Upsilon Hyperboloid",
+      "Malchor's Leap",
+      "[&BKgCAAA=]"
+    ],
+    [
+      "Usharr's Threshold",
+      "Sparkfly Fen",
+      "[&BMsBAAA=]"
+    ],
+    [
+      "Vacant Hermitage",
+      "Blazeridge Steppes",
+      "[&BP8BAAA=]"
+    ],
+    [
+      "Venison Hollow",
+      "Lornar's Pass",
+      "[&BOUAAAA=]"
+    ],
+    [
+      "Verdance Font",
+      "Cursed Shore",
+      "[&BBsDAAA=]"
+    ],
+    [
+      "Vizier's Anteport",
+      "Straits of Devastation",
+      "[&BPcCAAA=]"
+    ],
+    [
+      "Wassa's Terrace",
+      "Gendarran Fields",
+      "[&BIsBAAA=]"
+    ],
+    [
+      "Watchpoint Decimus",
+      "Plains of Ashford",
+      "[&BJgDAAA=]"
+    ],
+    [
+      "Wheelport Pub",
+      "Black Citadel",
+      "[&BKUDAAA=]"
+    ],
+    [
+      "Whitland Sinkhole",
+      "Mount Maelstrom",
+      "[&BNQCAAA=]"
+    ],
+    [
+      "Widd's Folly",
+      "Caledon Forest",
+      "[&BDoBAAA=]"
+    ],
+    [
+      "Wikk's Gate",
+      "Timberline Falls",
+      "[&BEwCAAA=]"
+    ],
+    [
+      "Wildflame Monitor",
+      "Metrica Province",
+      "[&BEAAAAA=]"
+    ],
+    [
+      "Winterknell Impasse",
+      "Cursed Shore",
+      "[&BBgDAAA=]"
+    ],
+    [
+      "Wrelk's Salon",
+      "Gendarran Fields",
+      "[&BJQBAAA=]"
+    ]
+  ],
+  "race": [
+    [
+      "Bear Lope",
+      "Lornar's Pass",
+      "[&BOkAAAA=]"
+    ],
+    [
+      "Chicken Run",
+      "Fields of Ruin",
+      "[&BEwBAAA=]"
+    ],
+    [
+      "Crab Scuttle",
+      "Southsun Cove",
+      "[&BNwGAAA=]"
+    ],
+    [
+      "Devourer Burrow",
+      "Diessa Plateau",
+      "[&BMkDAAA=]"
+    ],
+    [
+      "Ghost Wolf Run",
+      "Harathi Hinterlands",
+      "[&BKUAAAA=]"
+    ],
+    [
+      "Quaggan Paddle",
+      "Frostgorge Sound",
+      "[&BIACAAA=]"
+    ],
+    [
+      "Spider Scurry",
+      "Dredgehaunt Cliffs",
+      "[&BF0CAAA=]"
+    ]
+  ],
+  "bounty": [
+    [
+      "2-MULT",
+      "Timberline Falls",
+      "[&BEwCAAA=]"
+    ],
+    [
+      "Ander \"Wildman\" Westward",
+      "Southsun Cove",
+      "[&BNcGAAA=]"
+    ],
+    [
+      "Bookworm Bwikki",
+      "Lornar's Pass",
+      "[&BDEHAAA=]"
+    ],
+    [
+      "Big Mayana",
+      "Sparkfly Fen",
+      "[&BMwBAAA=]"
+    ],
+    [
+      "Brekkabek",
+      "Harathi Hinterlands",
+      "[&BKcAAAA=]"
+    ],
+    [
+      "Crusader Michiele",
+      "Sparkfly Fen",
+      "[&BMwBAAA=]"
+    ],
+    [
+      "\"Deputy\" Brooke",
+      "Snowden Drifts",
+      "[&BLkAAAA=]"
+    ],
+    [
+      "Devious Teesa",
+      "Frostgorge Sound",
+      "[&BIMCAAA=]"
+    ],
+    [
+      "Diplomat Tarban",
+      "Brisban Wildlands",
+      "[&BFwAAAA=]"
+    ],
+    [
+      "Half-Baked Komali",
+      "Mount Maelstrom",
+      "[&BM4CAAA=]"
+    ],
+    [
+      "Poobadoo",
+      "Kessex Hills",
+      "[&BAoAAAA=]"
+    ],
+    [
+      "Prisoner 1141",
+      "Iron Marches",
+      "[&BOoBAAA=]"
+    ],
+    [
+      "Shaman Arderus",
+      "Fireheart Rise",
+      "[&BCUCAAA=]"
+    ],
+    [
+      "Short-Fuse Felix",
+      "Diessa Plateau",
+      "[&BGEBAAA=]"
+    ],
+    [
+      "Sotzz the Scallywag",
+      "Gendarran Fields",
+      "[&BJEBAAA=]"
+    ],
+    [
+      "Tricksy Trekksa",
+      "Blazeridge Steppes",
+      "[&BAUCAAA=]"
+    ],
+    [
+      "Trillia Midwell",
+      "Fields of Ruin",
+      "[&BNMAAAA=]"
+    ],
+    [
+      "Yanonka the Rat-Wrangler",
+      "Fields of Ruin",
+      "[&BNMAAAA=]"
+    ]
+  ],
+  "puzzle": [
+    [
+      "Angvar's Trove",
+      "Snowden Drifts",
+      "[&BP8GAAA=]"
+    ],
+    [
+      "Langmar Estate",
+      "Plains of Ashford",
+      "[&BPgGAAA=]"
+    ],
+    [
+      "Proxemics Lab",
+      "Brisban Wildlands",
+      "[&BPkGAAA=]"
+    ]
+  ],
+  "challenge": [
+    [
+      "Blightwater Shatterstrike",
+      "Blazeridge Steppes",
+      "[&BPsBAAA=]"
+    ],
+    [
+      "Branded for Termination",
+      "Fields of Ruin",
+      "[&BEsBAAA=]"
+    ],
+    [
+      "Deep Trouble",
+      "Mount Maelstrom",
+      "[&BNICAAA=]"
+    ],
+    [
+      "Save Our Supplies",
+      "Iron Marches",
+      "[&BOoBAAA=]"
+    ],
+    [
+      "Scratch Sentry Defense",
+      "Timberline Falls",
+      "[&BEYEAAA=]"
+    ],
+    [
+      "Southsun Crab Toss",
+      "Southsun Cove",
+      "[&BNwGAAA=]"
+    ]
+  ]
+}
