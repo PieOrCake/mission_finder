@@ -57,4 +57,4 @@ Output: `build/MissionFinder.dll`
 
 ## License
 
-Same as the parent project.
+This software is provided as-is, without a warranty of any kind. Use at your own risk. It might delete your files, melt your PC, burn your house down, or cause world peace. Probably not that last one, but one can hope.
