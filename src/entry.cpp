@@ -32,6 +32,7 @@ static MissionFinder::MissionData g_data;
 static bool g_windowVisible = false;
 static char g_searchBuf[256] = {};
 static std::string g_statusMessage;
+static double g_statusTime = 0.0;
 static std::vector<std::pair<const char*, const MissionFinder::MissionRow*>> g_allRows;
 static bool g_dataLoaded = false;
 
@@ -159,11 +160,14 @@ static void OnMissionRowClicked(const char* typeName, const MissionFinder::Missi
             TypeMessageAndSendFromThread(line);
         }).detach();
         g_statusMessage = "Sending to chat...";
+        g_statusTime = ImGui::GetTime();
 #else
         g_statusMessage = "Copied row to clipboard.";
+        g_statusTime = ImGui::GetTime();
 #endif
     } else {
         g_statusMessage = "Copied row to clipboard.";
+        g_statusTime = ImGui::GetTime();
     }
 }
 
@@ -264,11 +268,14 @@ void AddonRender() {
         return;
 
     ImGui::SetNextWindowSize(ImVec2(520, 580), ImGuiCond_FirstUseEver);
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(12.f, 10.f));
 
     if (!ImGui::Begin(WINDOW_NAME, &g_windowVisible, ImGuiWindowFlags_NoScrollbar)) {
+        ImGui::PopStyleVar();
         ImGui::End();
         return;
     }
+    ImGui::PopStyleVar();
 
     if (!g_dataLoaded) {
         ImGui::Text("Mission data failed to load.");
@@ -304,17 +311,27 @@ void AddonRender() {
     }
 
     if (!g_statusMessage.empty()) {
-        ImGui::Separator();
-        ImVec4 statusColor;
-        if (g_statusMessage.find("Copied") != std::string::npos)
-            statusColor = ImVec4(0.4f, 0.9f, 0.4f, 1.f);  // green
-        else if (g_statusMessage.find("Sending") != std::string::npos)
-            statusColor = ImVec4(1.0f, 0.85f, 0.3f, 1.f);  // yellow
-        else
-            statusColor = ImVec4(1.f, 1.f, 1.f, 1.f);
-        ImGui::PushStyleColor(ImGuiCol_Text, statusColor);
-        ImGui::TextUnformatted(g_statusMessage.c_str());
-        ImGui::PopStyleColor();
+        const double elapsed = ImGui::GetTime() - g_statusTime;
+        const double fadeStart = 2.0;
+        const double fadeDuration = 1.0;
+        float alpha = 1.f;
+        if (elapsed > fadeStart)
+            alpha = 1.f - (float)((elapsed - fadeStart) / fadeDuration);
+        if (alpha <= 0.f) {
+            g_statusMessage.clear();
+        } else {
+            ImGui::Separator();
+            ImVec4 statusColor;
+            if (g_statusMessage.find("Copied") != std::string::npos)
+                statusColor = ImVec4(0.4f, 0.9f, 0.4f, alpha);
+            else if (g_statusMessage.find("Sending") != std::string::npos)
+                statusColor = ImVec4(1.0f, 0.85f, 0.3f, alpha);
+            else
+                statusColor = ImVec4(1.f, 1.f, 1.f, alpha);
+            ImGui::PushStyleColor(ImGuiCol_Text, statusColor);
+            ImGui::TextUnformatted(g_statusMessage.c_str());
+            ImGui::PopStyleColor();
+        }
     }
 
     ImGui::End();
