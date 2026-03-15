@@ -83,6 +83,10 @@ static void LoadClickActionConfig() {
 static void SaveClickActionConfig() {
     std::string path = GetConfigPath();
     if (path.empty()) return;
+    // Ensure addon directory exists
+    const char* dir = APIDefs->Paths_GetAddonDirectory(ADDON_NAME);
+    if (dir && dir[0])
+        CreateDirectoryA(dir, NULL);
     std::ofstream f(path);
     if (f) {
         f << g_clickAction;
@@ -173,6 +177,7 @@ static void OnMissionRowClicked(const char* typeName, const MissionFinder::Missi
 
 static int s_missionSortCol = 1;
 static bool s_missionSortAsc = true;
+static char s_scrollToLetter = 0;
 
 static void DrawMissionTable(const std::vector<std::pair<const char*, const MissionFinder::MissionRow*>>& filtered) {
     const ImGuiTableFlags flags = ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg
@@ -215,32 +220,71 @@ static void DrawMissionTable(const std::vector<std::pair<const char*, const Miss
             return s_missionSortAsc ? (cmp < 0) : (cmp > 0);
         });
 
+        bool scrollHandled = false;
         for (size_t i = 0; i < rows.size(); i++) {
             const char* typeName = rows[i].first;
             const MissionFinder::MissionRow* row = rows[i].second;
             ImGui::TableNextRow();
             ImGui::TableSetColumnIndex(0);
             ImGui::PushID(static_cast<int>(i));
-            bool clicked = ImGui::Selectable("##row", false,
-                ImGuiSelectableFlags_SpanAllColumns | ImGuiSelectableFlags_AllowItemOverlap);
+            ImGui::PushStyleColor(ImGuiCol_Text, GetTypeColor(typeName));
+            bool clicked = ImGui::Selectable(typeName, false,
+                ImGuiSelectableFlags_SpanAllColumns);
+            ImGui::PopStyleColor();
             ImGui::PopID();
             if (ImGui::IsItemHovered())
                 ImGui::SetMouseCursor(ImGuiMouseCursor_Hand);
             if (clicked)
                 OnMissionRowClicked(typeName, row);
-            ImGui::SameLine(0, 0);
-            ImGui::PushStyleColor(ImGuiCol_Text, GetTypeColor(typeName));
-            ImGui::TextUnformatted(typeName);
-            ImGui::PopStyleColor();
             ImGui::TableSetColumnIndex(1);
             ImGui::TextUnformatted(row->name.c_str());
             ImGui::TableSetColumnIndex(2);
             ImGui::TextUnformatted(row->zone.c_str());
+
+            if (s_scrollToLetter && !scrollHandled) {
+                const char* matchStr = nullptr;
+                if (s_missionSortCol == 0) matchStr = typeName;
+                else if (s_missionSortCol == 1) matchStr = row->name.c_str();
+                else matchStr = row->zone.c_str();
+                if (matchStr && toupper((unsigned char)matchStr[0]) == s_scrollToLetter) {
+                    ImGui::SetScrollHereY(0.f);
+                    scrollHandled = true;
+                }
+            }
         }
+        if (s_scrollToLetter) s_scrollToLetter = 0;
         ImGui::EndTable();
     }
 
     ImGui::PopStyleColor(4);
+}
+
+static void DrawAlphabetIndex(float height) {
+    const float alphaW = 16.f;
+    ImGui::BeginChild("##alphaIdx", ImVec2(alphaW, height), false,
+        ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
+    float avail = ImGui::GetContentRegionAvail().y;
+    float letterH = avail / 26.f;
+    float fontSize = ImGui::GetFontSize();
+    ImDrawList* dl = ImGui::GetWindowDrawList();
+    for (int c = 0; c < 26; c++) {
+        char letter[2] = { (char)('A' + c), 0 };
+        float yStart = letterH * c;
+        ImGui::SetCursorPosY(yStart);
+        ImGui::PushID(c);
+        if (ImGui::InvisibleButton("##l", ImVec2(alphaW, letterH))) {
+            s_scrollToLetter = 'A' + c;
+        }
+        ImVec2 rMin = ImGui::GetItemRectMin();
+        ImVec2 rMax = ImGui::GetItemRectMax();
+        ImVec2 ts = ImGui::CalcTextSize(letter);
+        bool hovered = ImGui::IsItemHovered();
+        ImU32 col = hovered ? IM_COL32(255, 200, 100, 255) : IM_COL32(160, 160, 160, 200);
+        dl->AddText(ImVec2(rMin.x + (alphaW - ts.x) * 0.5f,
+                           rMin.y + (letterH - ts.y) * 0.5f), col, letter);
+        ImGui::PopID();
+    }
+    ImGui::EndChild();
 }
 
 static void DrawFilteredTab(const char* childId, float statusH,
@@ -259,6 +303,9 @@ static void DrawFilteredTab(const char* childId, float statusH,
                 filtered.push_back(p);
         }
     }
+    float h = ImGui::GetContentRegionAvail().y;
+    DrawAlphabetIndex(h);
+    ImGui::SameLine();
     DrawMissionTable(filtered);
     ImGui::EndChild();
 }
@@ -283,8 +330,12 @@ void AddonRender() {
         return;
     }
 
-    ImGui::SetNextItemWidth(-1.f);
+    ImGui::SetNextItemWidth(-50.f);
     ImGui::InputTextWithHint("##search", "Search missions...", g_searchBuf, sizeof(g_searchBuf));
+    ImGui::SameLine();
+    if (ImGui::Button("Clear", ImVec2(-1.f, 0.f)))
+        g_searchBuf[0] = '\0';
+    ImGui::Spacing();
 
     float statusH = 0.f;
     if (!g_statusMessage.empty())
