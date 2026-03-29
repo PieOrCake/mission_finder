@@ -20,10 +20,13 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/src/EmbeddedMissionData.inc.in ${CMAK
 
 # Addon DLL (module-definition file ensures GetAddonDef is exported for Nexus)
 add_library(${PROJECT_NAME} SHARED
-  src/entry.cpp
+  src/dllmain.cpp
   src/Shared.cpp
+  src/Config.cpp
+  src/ChatMessage.cpp
+  src/UI.cpp
   src/MissionData.cpp
-  src/MissionFinder.def
+  MissionFinder.def
   # ImGui core (Nexus provides context and Win32/DX11 backends at runtime)
   ${IMGUI_SRC_DIR}/imgui.cpp
   ${IMGUI_SRC_DIR}/imgui_draw.cpp
@@ -51,7 +54,7 @@ if(WIN32)
     UNICODE
     _UNICODE
   )
-  set(DEF_FILE "${CMAKE_CURRENT_SOURCE_DIR}/src/MissionFinder.def")
+  set(DEF_FILE "${CMAKE_CURRENT_SOURCE_DIR}/MissionFinder.def")
   if(MSVC)
     # MSVC does not use .def from source list; pass explicitly so GetAddonDef is exported.
     target_link_options(${PROJECT_NAME} PRIVATE /DEF:${DEF_FILE})
