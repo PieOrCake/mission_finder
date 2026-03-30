@@ -14,7 +14,7 @@
 #define V_MAJOR 0
 #define V_MINOR 9
 #define V_BUILD 1
-#define V_REVISION 0
+#define V_REVISION 1
 
 static const char* KB_TOGGLE = "KB_MISSION_FINDER_TOGGLE";
 static const char* QA_ID = "MissionFinder_qa";
