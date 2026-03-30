@@ -8,6 +8,9 @@
 #include <vector>
 #include <algorithm>
 #include <cstring>
+#ifdef _WIN32
+#include <shellapi.h>
+#endif
 
 static const char* WINDOW_NAME = "Pie's Glorious Mission Finder";
 
@@ -269,6 +272,14 @@ void AddonRender() {
 }
 
 void AddonOptions() {
+    if (ImGui::SmallButton("Homepage")) {
+        ShellExecuteA(NULL, "open", "https://pie.rocks.cc/", NULL, NULL, SW_SHOWNORMAL);
+    }
+    ImGui::SameLine();
+    if (ImGui::SmallButton("Buy me a coffee!")) {
+        ShellExecuteA(NULL, "open", "https://ko-fi.com/pieorcake", NULL, NULL, SW_SHOWNORMAL);
+    }
+    ImGui::Separator();
     ImGui::Text("When clicking a mission");
     ImGui::SameLine(0, ImGui::GetStyle().ItemSpacing.x * 2.f);
     ImGui::RadioButton("Copy to clipboard", &g_clickAction, ClickAction_CopyToClipboard);
