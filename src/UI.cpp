@@ -62,7 +62,46 @@ static int s_missionSortCol = 1;
 static bool s_missionSortAsc = true;
 static char s_scrollToLetter = 0;
 
-static void DrawMissionTable(const std::vector<std::pair<const char*, const MissionFinder::MissionRow*>>& filtered) {
+// Cached display list — only rebuilt when inputs change
+static std::vector<std::pair<const char*, const MissionFinder::MissionRow*>> s_displayRows;
+static std::string s_prevSearch;
+static int s_prevSortCol = 1;
+static bool s_prevSortAsc = true;
+static const void* s_prevTabRows = nullptr;
+static bool s_displayDirty = true;
+
+static void SortDisplayRows() {
+    std::sort(s_displayRows.begin(), s_displayRows.end(), [](const auto& a, const auto& b) {
+        int cmp = 0;
+        if (s_missionSortCol == 0)
+            cmp = std::strcmp(a.first, b.first);
+        else if (s_missionSortCol == 1)
+            cmp = a.second->name.compare(b.second->name);
+        else
+            cmp = a.second->zone.compare(b.second->zone);
+        return s_missionSortAsc ? (cmp < 0) : (cmp > 0);
+    });
+}
+
+static void RebuildDisplayRows(const char* typeName,
+    const std::vector<MissionFinder::MissionRow>* rows)
+{
+    s_displayRows.clear();
+    if (rows) {
+        for (const auto& r : *rows) {
+            if (RowMatchesSearch(&r, g_searchBuf))
+                s_displayRows.push_back({typeName, &r});
+        }
+    } else {
+        for (const auto& p : g_allRows) {
+            if (RowMatchesSearch(p.second, g_searchBuf))
+                s_displayRows.push_back(p);
+        }
+    }
+    SortDisplayRows();
+}
+
+static void DrawMissionTable() {
     const ImGuiTableFlags flags = ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg
         | ImGuiTableFlags_Resizable | ImGuiTableFlags_Sortable | ImGuiTableFlags_ScrollY;
 
@@ -85,28 +124,24 @@ static void DrawMissionTable(const std::vector<std::pair<const char*, const Miss
         ImGui::TableSetupScrollFreeze(0, 1);
         ImGui::TableHeadersRow();
 
+        // Detect sort changes — only resort when column or direction changes
         ImGuiTableSortSpecs* sort_specs = ImGui::TableGetSortSpecs();
         if (sort_specs && sort_specs->SpecsCount > 0) {
-            s_missionSortCol = sort_specs->Specs[0].ColumnIndex;
-            s_missionSortAsc = (sort_specs->Specs[0].SortDirection == ImGuiSortDirection_Ascending);
+            int col = sort_specs->Specs[0].ColumnIndex;
+            bool asc = (sort_specs->Specs[0].SortDirection == ImGuiSortDirection_Ascending);
+            if (col != s_prevSortCol || asc != s_prevSortAsc) {
+                s_missionSortCol = col;
+                s_missionSortAsc = asc;
+                s_prevSortCol = col;
+                s_prevSortAsc = asc;
+                SortDisplayRows();
+            }
         }
 
-        auto rows = filtered;
-        std::sort(rows.begin(), rows.end(), [](const auto& a, const auto& b) {
-            int cmp = 0;
-            if (s_missionSortCol == 0)
-                cmp = std::strcmp(a.first, b.first);
-            else if (s_missionSortCol == 1)
-                cmp = a.second->name.compare(b.second->name);
-            else
-                cmp = a.second->zone.compare(b.second->zone);
-            return s_missionSortAsc ? (cmp < 0) : (cmp > 0);
-        });
-
         bool scrollHandled = false;
-        for (size_t i = 0; i < rows.size(); i++) {
-            const char* typeName = rows[i].first;
-            const MissionFinder::MissionRow* row = rows[i].second;
+        for (size_t i = 0; i < s_displayRows.size(); i++) {
+            const char* typeName = s_displayRows[i].first;
+            const MissionFinder::MissionRow* row = s_displayRows[i].second;
             ImGui::TableNextRow();
             ImGui::TableSetColumnIndex(0);
             ImGui::PushID(static_cast<int>(i));
@@ -174,22 +209,21 @@ static void DrawFilteredTab(const char* childId, float statusH,
     const char* typeName, const std::vector<MissionFinder::MissionRow>* rows)
 {
     ImGui::BeginChild(childId, ImVec2(0, -statusH), true, ImGuiWindowFlags_NoScrollbar);
-    std::vector<std::pair<const char*, const MissionFinder::MissionRow*>> filtered;
-    if (rows) {
-        for (const auto& r : *rows) {
-            if (RowMatchesSearch(&r, g_searchBuf))
-                filtered.push_back({typeName, &r});
-        }
-    } else {
-        for (const auto& p : g_allRows) {
-            if (RowMatchesSearch(p.second, g_searchBuf))
-                filtered.push_back(p);
-        }
+
+    // Detect search or tab change — rebuild filtered+sorted cache
+    std::string curSearch(g_searchBuf);
+    const void* tabKey = (const void*)rows;
+    if (curSearch != s_prevSearch || tabKey != s_prevTabRows || s_displayDirty) {
+        s_prevSearch = curSearch;
+        s_prevTabRows = tabKey;
+        s_displayDirty = false;
+        RebuildDisplayRows(typeName, rows);
     }
+
     float h = ImGui::GetContentRegionAvail().y;
     DrawAlphabetIndex(h);
     ImGui::SameLine();
-    DrawMissionTable(filtered);
+    DrawMissionTable();
     ImGui::EndChild();
 }
 
